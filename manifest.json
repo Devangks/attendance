@@ -1,18 +1,9 @@
 {
-  "name": "CollegeMate Attendance Tracker",
-  "short_name": "CollegeMate",
+  "name": "Attendance Tracker",
+  "short_name": "Attendance",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#09090b",
-  "theme_color": "#09090b",
-  "description": "Smart, local-first offline college attendance tracker",
-  "icons": [
-    {
-      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='128' fill='%2309090b'/%3E%3Ccircle cx='256' cy='256' r='180' stroke='%2338bdf8' stroke-width='32' fill='none' stroke-dasharray='800' stroke-dashoffset='200' stroke-linecap='round'/%3E%3Ctext x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='system-ui,sans-serif' font-weight='800' font-size='140' fill='%23ffffff'%3E75%25%3C/text%3E%3C/svg%3E",
-      "sizes": "192x192 512x512",
-      "type": "image/svg+xml",
-      "purpose": "any maskable"
-    }
-  ]
+  "background_color": "#14111f",
+  "theme_color": "#14111f"
 }
