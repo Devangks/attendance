@@ -1,10 +1,154 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#0c0c0e">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<title>Attendance</title>
-<link rel="stylesheet" href="style.css"></head><body>
-<div id="app"></div><div id="fab"></div><div id="sh"></div><nav id="nav"></nav>
-<input type="file" id="imp" accept=".json" hidden>
-<script src="app.js"></script></body></html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#09090b">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="CollegeMate">
+  <title>CollegeMate — Attendance Tracker</title>
+  
+  <link rel="manifest" href="./manifest.json">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='42' stroke='%2338bdf8' stroke-width='12' fill='none' stroke-dasharray='200' stroke-dashoffset='50'/%3E%3C/svg%3E">
+  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='25' fill='%2309090b'/%3E%3Ccircle cx='50' cy='50' r='36' stroke='%2338bdf8' stroke-width='10' fill='none'/%3E%3C/svg%3E">
+</head>
+<body>
+  <div class="blob-container" aria-hidden="true">
+    <div class="blob blob-indigo"></div>
+    <div class="blob blob-teal"></div>
+    <div class="blob blob-purple"></div>
+  </div>
+
+  <div class="app-layout">
+    <nav class="nav-container glass" aria-label="Main Navigation">
+      <div class="nav-brand">
+        <div class="brand-logo">75%</div>
+        <span class="brand-name">CollegeMate</span>
+      </div>
+      <div class="nav-items">
+        <button class="nav-btn active" data-tab="subjects" aria-label="Subjects">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10M6 10h10"/></svg>
+          <span>Subjects</span>
+        </button>
+        <button class="nav-btn" data-tab="daily" aria-label="Daily Log">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/><path d="m9 16 2 2 4-4"/></svg>
+          <span>Daily Log</span>
+        </button>
+        <button class="nav-btn" data-tab="timetable" aria-label="Timetable">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span>Timetable</span>
+        </button>
+        <button class="nav-btn" data-tab="assignments" aria-label="Assignments">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M9 14h6M9 18h6M9 10h1"/></svg>
+          <span>Assignments</span>
+        </button>
+        <button class="nav-btn" data-tab="settings" aria-label="Settings">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.1a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+          <span>Settings</span>
+        </button>
+      </div>
+    </nav>
+
+    <main class="content-container">
+      <header class="app-header glass">
+        <h1 id="page-title">Subjects</h1>
+        <div class="header-actions" id="header-actions"></div>
+      </header>
+
+      <section id="tab-subjects" class="tab-panel active">
+        <div class="overall-card glass">
+          <div class="overall-info">
+            <span class="label">Semester Aggregate</span>
+            <h2 id="overall-percent">100%</h2>
+            <p id="overall-status" class="status-badge safe">Meeting All Criteria</p>
+          </div>
+          <div class="overall-stats-grid">
+            <div class="stat-box"><span class="val" id="overall-attended">0</span><span class="lbl">Attended</span></div>
+            <div class="stat-box"><span class="val" id="overall-held">0</span><span class="lbl">Conducted</span></div>
+          </div>
+        </div>
+        <div id="subjects-grid" class="subjects-grid"></div>
+      </section>
+
+      <section id="tab-daily" class="tab-panel">
+        <div class="date-navigator glass">
+          <button id="btn-prev-day" class="icon-btn" aria-label="Previous Day">&#8592;</button>
+          <div class="date-display">
+            <h2 id="current-day-label">Today</h2>
+            <span id="current-date-label">Date</span>
+          </div>
+          <button id="btn-next-day" class="icon-btn" aria-label="Next Day">&#8594;</button>
+        </div>
+        <div class="daily-actions">
+          <button id="btn-mark-all" class="btn btn-secondary glass">Mark All Present</button>
+          <button id="btn-add-extra" class="btn btn-secondary glass">+ Extra Class</button>
+        </div>
+        <div id="daily-classes-list" class="daily-list"></div>
+      </section>
+
+      <section id="tab-timetable" class="tab-panel">
+        <div class="day-selector-pills" id="timetable-days"></div>
+        <div id="timetable-slots-list" class="slots-list"></div>
+      </section>
+
+      <section id="tab-assignments" class="tab-panel">
+        <div class="assignments-header">
+          <button id="btn-add-assignment" class="btn btn-primary glass">+ New Task</button>
+        </div>
+        <div id="assignments-list" class="assignments-list"></div>
+      </section>
+
+      <section id="tab-settings" class="tab-panel">
+        <div class="card glass settings-group">
+          <h3>Preferences & Rules</h3>
+          <div class="form-row">
+            <label for="set-target">Default Target Attendance (%)</label>
+            <input type="number" id="set-target" min="1" max="100" class="input-glass">
+          </div>
+          <div class="form-row toggle-row">
+            <label for="set-od">Count On Duty (OD) as Present</label>
+            <input type="checkbox" id="set-od" class="toggle-glass">
+          </div>
+        </div>
+
+        <div class="card glass settings-group">
+          <h3>Holidays & Range</h3>
+          <div class="form-row">
+            <input type="date" id="holiday-start" class="input-glass">
+            <input type="date" id="holiday-end" class="input-glass">
+            <input type="text" id="holiday-reason" placeholder="Reason (e.g. Diwali)" class="input-glass">
+            <button id="btn-add-holiday" class="btn btn-secondary glass">Add Holiday Range</button>
+          </div>
+          <div id="holidays-list" class="chips-container"></div>
+        </div>
+
+        <div class="card glass settings-group">
+          <h3>Backup & Data Protection</h3>
+          <div class="actions-group">
+            <button id="btn-export-json" class="btn btn-secondary glass">Export JSON Backup</button>
+            <label class="btn btn-secondary glass file-btn">
+              Import Backup
+              <input type="file" id="file-import" accept=".json" style="display:none">
+            </label>
+            <button id="btn-reset-sem" class="btn btn-danger glass">Reset Current Semester</button>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div id="modal-container" class="modal-backdrop" aria-hidden="true">
+    <div class="modal-sheet glass">
+      <div class="modal-header">
+        <h3 id="modal-title">Modal</h3>
+        <button id="modal-close" class="icon-btn" aria-label="Close Modal">&times;</button>
+      </div>
+      <div id="modal-body" class="modal-body"></div>
+    </div>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
