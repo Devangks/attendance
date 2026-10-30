@@ -1,5 +1,5 @@
 // Network-first: hamesha latest file lata hai, internet na ho to cache se chalata hai.
-const CACHE = 'attendance-v3';
+const CACHE = 'attendance-v4';
 const ASSETS = ['./', './index.html', './style.css', './app.js', './manifest.json'];
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(ASSETS)).catch(() => {}));
