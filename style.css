@@ -1,0 +1,47 @@
+:root{--g:#4ade80;--r:#f87171;--b:#3b82f6;--mu:#a1a1b0}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;color:#fff;font:16px -apple-system,system-ui,sans-serif;background:#0c0c0e;
+background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.03) 0 2px,transparent 2px 24px),repeating-linear-gradient(-45deg,rgba(255,255,255,.02) 0 2px,transparent 2px 38px);
+min-height:100vh;padding:env(safe-area-inset-top) 0 120px}
+#app{max-width:560px;margin:auto;padding:14px}
+h1{font-size:34px;margin:18px 4px 14px;display:flex;justify-content:space-between;align-items:center}
+h3{margin:0 0 4px;font-size:20px}h2{margin:22px 6px 8px;color:var(--mu);font-size:18px}
+.glass{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:24px;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.mu{color:var(--mu);font-size:14px}.ok{color:var(--g)}.bad{color:var(--r)}.bl{color:#60a5fa}
+button,select,input{font:inherit;color:#fff;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:14px;padding:11px 13px}
+input,select{width:100%;margin:5px 0}button{cursor:pointer}
+input[type=checkbox]{width:auto}
+.pri{background:#3b82f6;border:0;font-weight:700;width:100%;margin-top:8px}.dng{color:var(--r)}
+.row{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.sc{padding:16px 18px;margin:12px 0 4px;display:flex;justify-content:space-between;align-items:center;cursor:pointer}
+.sc b{font-size:19px}.cnt{color:var(--mu);margin:2px 0}.cnt b{color:#fff;margin-right:6px}
+.msg{font-weight:700;margin-top:10px}
+.adj{display:flex;justify-content:space-between;padding:2px 8px 10px;font-size:14px}
+.adj button{width:44px;height:44px;border-radius:50%;padding:0;font-size:22px;margin:4px 3px 0}
+.adj .m{color:var(--r)}.adj .p{color:var(--g)}.adj div:last-child{text-align:right}
+.lg{padding:16px 18px;margin:12px 0;display:flex;justify-content:space-between;align-items:center}
+.pc{font-weight:700;margin-top:4px}
+.circ{width:82px;height:82px;border-radius:50%;font-size:24px;font-weight:800;border:0;box-shadow:0 0 18px rgba(59,130,246,.45);flex:none}
+.bar2{display:flex;justify-content:space-between;align-items:center;padding:10px;margin:6px 0;gap:8px}
+.bar2 button.rd{border-radius:50%;width:44px;height:44px;padding:0;font-size:20px;background:#3b82f6;border:0}
+.dh{padding:18px;margin:12px 0;display:flex;justify-content:space-between;cursor:pointer;font-size:19px}
+.tt{margin:10px 0;padding:14px 16px;display:flex;align-items:center;gap:14px;background:rgba(34,90,50,.35);border-color:rgba(74,222,128,.35);position:relative}
+.tt i{width:5px;align-self:stretch;border-radius:3px;background:var(--c)}.ttb{flex:1}
+.x{background:none;border:0;color:var(--mu);padding:6px}
+.as{margin:10px 0;padding:14px 16px;display:flex;align-items:center;gap:12px}.as.dn h3{text-decoration:line-through;opacity:.5}
+.chk{width:34px;height:34px;border-radius:50%;padding:0;flex:none;color:var(--g);font-weight:800}
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;text-align:center;margin:10px 0}
+.cal div{padding:7px 0;border-radius:12px;background:rgba(255,255,255,.07);min-height:46px;font-size:13px;cursor:pointer}
+.cal .h{background:none;color:var(--mu);min-height:0;cursor:default}.cal .hol{background:rgba(255,255,255,.2);color:var(--mu)}
+.cal .sel{outline:2px solid #60a5fa}.cal .e{background:none}
+.dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin:1px}
+.set{padding:6px 16px}.set>*{padding:12px 0}
+.set>.row{border-bottom:1px solid rgba(255,255,255,.08)}.set>.row:last-child{border:0}
+#nav{position:fixed;left:14px;right:14px;bottom:calc(14px + env(safe-area-inset-bottom));max-width:532px;margin:auto;display:flex;padding:6px;border-radius:34px;background:rgba(30,30,34,.85);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.12);z-index:5}
+#nav button{flex:1;background:none;border:0;border-radius:28px;padding:8px 0 6px;font-size:11px;font-weight:600;color:#ddd}
+#nav button span{display:block;font-size:22px}#nav button.on{background:rgba(255,255,255,.14);color:#67e8f9}
+#fab{position:fixed;right:22px;bottom:calc(100px + env(safe-area-inset-bottom));z-index:4}
+#fab button{width:62px;height:62px;border-radius:50%;font-size:34px;padding:0;box-shadow:0 4px 20px rgba(0,0,0,.5)}
+.ov{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:10;display:flex;align-items:flex-end}
+.sheet{width:100%;max-width:560px;margin:auto;border-radius:28px 28px 0 0;padding:20px;background:#1a1a20;max-height:85vh;overflow:auto;padding-bottom:calc(24px + env(safe-area-inset-bottom))}
+.opt{width:100%;text-align:left;margin:5px 0;font-size:18px;padding:15px}
